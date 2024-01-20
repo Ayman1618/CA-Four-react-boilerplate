@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import "./Result.css";
 
-export default function Result({ score, mode }) {
+export default function Result({ score, mode, reGame }) {
 
   // Dark-light functionality
   useEffect(() => {
@@ -12,10 +12,6 @@ export default function Result({ score, mode }) {
     }
   }, [mode]);
 
-  const restartQuiz = () => {
-    window.location.reload(); // Reload the page to restart the quiz
-  };
-
   return (
     <div>
 
@@ -25,7 +21,7 @@ export default function Result({ score, mode }) {
             <div className='question' id='highlighten' ><h2 className='values'>Percentage: {Math.round((score / 5) * 100)}%</h2></div>
             <div className="highlighting">
               <div className="highlight-div">
-              <button className='highlight' id='restart' onClick={restartQuiz}><h2>RESTART</h2></button>
+              <button className='highlight' id='restart' onClick={reGame}><h2>RESTART</h2></button>
               </div>
             </div>
         </div>

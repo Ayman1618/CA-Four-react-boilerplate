@@ -46,6 +46,12 @@ export default function QuestionBox(props) {
   let question = Questions[currQuestion]?.text;
   let options = Questions[currQuestion]?.options;
 
+  // Restarting the quiz
+  const reGame = () => {
+    setCurrQuestion(0);
+    setScore(0);
+  };
+  
   // Function to handle option click
   function handleClickOptions(value) {
     let selectedOption = options[value].isCorrect;
@@ -117,7 +123,7 @@ export default function QuestionBox(props) {
           </div>
         </div>
       ) : (
-        <Result score={score} mode={mode} />
+        <Result reGame={reGame} score={score} mode={mode} />
       )}
     </div>
   );
