@@ -1,18 +1,9 @@
-body{
-    /* overflow: hidden; */
-    /* background-image: url('./images/img.png'); */
-}
 
 .logo-2{
     height: 5vw;
     margin-left: 42vw;
     margin-top: 1.3vw;
 }
-
-/* .background-1{
-    position: absolute;
-    background-color: black;
-} */
 
 .background-2{
     height: 100vh;
