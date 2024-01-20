@@ -1,4 +1,6 @@
-
+body{
+    overflow: hidden;
+}
 .logo-2{
     height: 5vw;
     margin-left: 42vw;
