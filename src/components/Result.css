@@ -1,45 +1,27 @@
-.finalResult{
-    font-weight: 700;
-    font-size: 4.5vw;
+
+#rescont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1px;
 }
 
-.whiteBox{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+#restart{
+    cursor: pointer;
+    margin-top: -5vw;
+    width: 10vw;
+    color: black;
+    background-color: #F25656;
+    box-shadow: 4px 4px 11px black;
     
 }
 
-.correct{
-    font-size: 2.2vw;
-    font-weight: 600;
-    color: #9282C1;
+#restart h2{
+    font-size: 1.2vw;
+    margin-top: 0.5vw;
 }
 
-.re{
-    width: 25vw;
-    height: 100px;
+.values{
+    margin-top: -10px;
 }
-
-.restart1{
-    z-index: 5;
-    background-color:#B6A8E1 ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #9282C1;
-    position: relative;
-    color: #635394;
-    font-size: 2vw;
-    font-weight: 600;
-}
-
-.restart2{
-    background-color: #65529C;
-    position: absolute;
-    z-index:1;
-    margin-top: -80px;
-    margin-left: 17px;
-}
-
-

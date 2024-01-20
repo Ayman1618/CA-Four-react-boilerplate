@@ -1,82 +1,37 @@
-import React, { useState,useEffect } from 'react'
-import './Result.css'
+import React, { useEffect } from 'react';
+import "./Result.css";
 
-export default function Result(props) {
+export default function Result({ score, mode }) {
 
-  const score = props.score
-  const mode = props.mode
-
-  const rpWBLight = {
-    "backgroundColor":"#F8F8F8",
-    "border":"5px solid #9282C1"
-  }
-
-  const rpWBDark = {
-    "backgroundColor":"#292929",
-    "border":"5px solid #917FC7"
-  }
-
-  const hLight = {
-    "color":"#635394"
-  }
-
-  const hDark = {
-    "color":"#D0C6EF"
-  }
-
-  const pbLight = {
-    "backgroundColor" : "#8E7CC3"
-  }
-
-  const pbDark = {
-    "backgroundColor":"#917FC7"
-  }
-
-  const [whiteBoxResultPageStyle,setWhiteBoxResultPageStyle] = useState(rpWBLight)
-  const [h,setH] = useState(hLight)
-  const [pb,setpb] = useState(pbLight)
-
+  // Dark-light functionality
   useEffect(() => {
-    console.log("vuf r")
-    setWhiteBoxResultPageStyle(mode == "dark" ? rpWBDark : rpWBLight)
-    setH(mode == "dark" ? hDark : hLight)
-    setpb(mode == "dark" ? pbDark : pbLight)
-  },[mode])
+    const main = document.getElementById("maincont");
+    if (main) {
+      // Apply dark or light mode based on the mode state
+      main.className = mode === "dark" ? "dark" : "light";
+    }
+  }, [mode]);
 
-  useEffect(() => {
-    setWhiteBoxResultPageStyle(mode == "dark" ? rpWBDark : rpWBLight)
-    setH(mode == "dark" ? hDark : hLight)
-    setpb(mode == "dark" ? pbDark : pbLight)
-  },[])
-
-  let percent = (score/5)*100
-
-  function handleRestart(){
-    window.location.reload()
-  }
+  const restartQuiz = () => {
+    window.location.reload(); // Reload the page to restart the quiz
+  };
 
   return (
     <div>
-      <div className="mainArea" >
-        <div className="whiteBox" style={whiteBoxResultPageStyle}>
-          <div className="finalResult" style={h}>
-            FINAL RESULT
-          </div>
-          <div className="correct">
-            You got {score} out of 5 correct - ({percent}%)
-          </div>
-          <div className="restartArea">
-            <div className="re restart1" onClick={handleRestart}>
-              RESTART GAME
+
+        <div className="dialogue-box" id='rescont'>
+          <h1 id='ress'>Result!</h1>
+            <div className='questionsOutOf'><h1 className='values'>{score} out of 5 correct</h1></div>
+            <div className='question' id='highlighten' ><h2 className='values'>Percentage: {Math.round((score / 5) * 100)}%</h2></div>
+            <div className="highlighting">
+              <div className="highlight-div">
+              <button className='highlight' id='restart' onClick={restartQuiz}><h2>RESTART</h2></button>
+              </div>
             </div>
-            <div className="re restart2"></div>
-          </div>
         </div>
-        <div className="purpleBox" style={pb}>
-        </div>
-      </div>
+
     </div>
-  )
+  );
 }
 
 
